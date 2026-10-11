@@ -1,0 +1,12 @@
+{
+  "name": "kojirase-daigekijo",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm --prefix server ci && npm --prefix client ci --include=dev && npm --prefix client run build",
+    "start": "npm --prefix server start"
+  }
+}

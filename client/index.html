@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- タイトル表示用。本文は端末のフォントのままにして、読み込むのはこの1書体だけ。
+         Google Fonts は使う文字だけを分割配信するので、タイトル数文字なら数十KBで済む。 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&display=swap"
+    />
+    <title>こじらせ大劇場</title>
+    <meta name="description" content="AIが台本を書き、AIが演技を採点する。友達と声だけで一幕を演じきるパーティーゲーム。" />
+
+    <!-- OGP。X の Web Intent は画像を添付できないので、投稿の見た目はこのリンクカードが担う。
+         og:image と og:url は絶対URLでないと展開されないため本番URLを直接書く。 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="こじらせ大劇場" />
+    <meta property="og:title" content="こじらせ大劇場" />
+    <meta property="og:description" content="AIが台本を書き、AIが演技を採点する。友達と声だけで一幕を演じきるパーティーゲーム。" />
+    <meta property="og:url" content="https://kojirase-daigekijo-production.up.railway.app/" />
+    <meta property="og:image" content="https://kojirase-daigekijo-production.up.railway.app/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="こじらせ大劇場" />
+    <meta name="twitter:description" content="AIが台本を書き、AIが演技を採点する。友達と声だけで一幕を演じきるパーティーゲーム。" />
+    <meta name="twitter:image" content="https://kojirase-daigekijo-production.up.railway.app/ogp.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

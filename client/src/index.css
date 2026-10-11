@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 18px;
+}
+
+/* トップ画面の地。わら半紙のざらつきと四隅の焼けを CSS だけで出す（画像を増やさない）。
+   background-image は先に書いたものが上に載るので、焼け → ざらつき の順。 */
+.bg-washi {
+  background-color: #f0e7d2;
+  background-image:
+    radial-gradient(110% 90% at 50% 40%, transparent 50%, rgba(90, 64, 32, 0.15)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  /* 昭和の印刷物に丸角は無い。角丸は全廃し、枠と帯で構造を作る。 */
+  .washi-panel {
+    @apply bg-kinari border border-sumi p-4;
+  }
+  /* 見出しの帯。地はジャンルの差し色（App が --genre に流す）。 */
+  .washi-band {
+    @apply inline-block px-4 py-1 text-kinari font-bold tracking-[0.18em];
+    background: var(--genre, #241c17);
+  }
+  .btn-sumi {
+    @apply w-full bg-sumi py-3 font-bold tracking-[0.12em] text-kinari
+           transition-opacity hover:opacity-85 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply w-full border-2 border-sumi py-3 font-bold tracking-[0.12em] text-sumi
+           transition-colors hover:bg-sumi/5 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-shu {
+    @apply w-full bg-shu py-3 font-bold tracking-[0.12em] text-kinari
+           transition-opacity hover:opacity-85 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .field {
+    @apply w-full border border-sumi bg-kinari p-3 text-sumi outline-none
+           placeholder-[#9a8a76] focus:ring-2 focus:ring-shu;
+  }
+  .rule {
+    @apply border-t border-kei;
+  }
+  /* 検印。真円はここだけの例外。 */
+  .seal {
+    @apply grid place-items-center rounded-full border-2 border-shu
+           font-display font-bold text-shu -rotate-[8deg];
+  }
+}
